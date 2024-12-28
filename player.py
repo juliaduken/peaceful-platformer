@@ -1,4 +1,4 @@
-## Player Class for Player Behavior ##
+## Description: Defines player behavior and button clicks.
 
 import pygame
 from settings import *
@@ -6,6 +6,8 @@ from settings import *
 
 class Player:
     def __init__(self):
+        # Score
+        self.score = 0
         # Movement attributes
         self.vel_x = 0
         self.vel_y = 0
@@ -22,8 +24,8 @@ class Player:
         self.image_jump = pygame.image.load("assets/images/fairy_jump.png")
         
         # Ensure the images are the same size
-        self.image_idle = pygame.transform.scale(self.image_idle, (160,160))
-        self.image_jump = pygame.transform.scale(self.image_jump, (160,160))
+        self.image_idle = pygame.transform.scale(self.image_idle, (100,100))
+        self.image_jump = pygame.transform.scale(self.image_jump, (100,100))
  
         # Start with the idle image
         self.image = self.image_idle 
@@ -67,7 +69,7 @@ class Player:
         return False
 
     
-    def update(self, platforms, ladders, level_width):
+    def update(self, platforms, ladders, chests, level_width):
         """
         Updates the player's position and handles collisions with platforms.
         :param platforms: List of Platform objects.
@@ -118,6 +120,16 @@ class Player:
             else:
                 self.on_ladder = False  # Reset if not on a ladder
 
+        # Opening chests
+        for chest in chests:
+            if self.rect.colliderect(chest.rect) and not chest.collected:
+                # Handle chest interaction (e.g., key press)
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_e]:  # Press 'E' to open the chest
+                    chest.collected = True  # Mark chest as opened
+                    self.score += 10  # Increase the player's score
+                    print(f"Chest opened! Score: {self.score}")
+
         # Apply gravity only if not climbing
         if not self.on_ladder:
             self.vel_y += GRAVITY
@@ -167,18 +179,13 @@ class Player:
             if pygame.time.get_ticks() - self.jump_animation_timer > 200:  # 200ms duration
                 self.image = self.image_idle
 
-    def draw(self, screen, platforms, ladders):
+
+
+    def draw(self, screen):
         # Draw the player sprite
         screen.blit(self.image, self.rect)
         
         # Debug: Draw the player's midpoint
         pygame.draw.circle(screen, (255, 0, 0), self.rect.center, 3)  # Red dot for midpoint
         pygame.draw.rect(screen, (0, 0, 255), self.rect, 2)  # Blue outline
-
-
-        # Debug: Draw platform bounds
-        for platform in platforms:
-            pygame.draw.rect(screen, (0, 255, 0), platform.rect, 1)  # Green outline for platforms
-
-
 
