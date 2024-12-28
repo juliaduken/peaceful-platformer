@@ -1,4 +1,4 @@
-## Game Entry Point ##
+## Description: This file contains the main game loop and the start screen of the game.
 
 import pygame
 import sys
@@ -54,7 +54,7 @@ def start_screen(screen):
                     return  # Start the game
 
         # Draw the button
-        screen.fill(WHITE)
+        screen.fill(BACKGROUND)
         screen.blit(button_img, button_rect)
         pygame.display.flip()
 
@@ -88,7 +88,7 @@ def main():
                 running = False
 
         # Update player
-        player.update(platform_manager.platforms, platform_manager.ladders, level_width)
+        player.update(platform_manager.platforms, platform_manager.ladders, platform_manager.chests, level_width)
 
         # Move platforms only when the level scrolls
         platform_manager.update_platforms(player.scroll_speed if player.rect.x >= 2 * SCREEN_WIDTH // 4 else 0)
@@ -104,7 +104,7 @@ def main():
                 cloud[1] = random.randint(50, 200)  # Randomize height for variety
 
 
-        # Drawing
+        # Draw background
         screen.fill(BACKGROUND)
 
         # Draw clouds
@@ -119,13 +119,23 @@ def main():
         for ladder in platform_manager.ladders:
             ladder.draw(screen)
 
+        # Draw player
+        player.draw(screen)
+
+        # Draw treasure chests
+        for chest in platform_manager.chests:
+            chest.draw(screen)
+
         # Draw Dirt
         GROUND_LEVEL = SCREEN_HEIGHT - DIRT_HEIGHT
         screen.blit(dirt_img, (0, GROUND_LEVEL))  # Draw the dirt
         draw_dirt(screen)
 
-        # Draw player
-        player.draw(screen, platform_manager.platforms, platform_manager.ladders)
+        # Render the score
+        font = pygame.font.Font(None, 36)  # Use a Pygame font
+        score_text = font.render(f"Score: {player.score}", True, (255, 255, 255))  # White text
+        screen.blit(score_text, (10, 10))  # Draw score in the top-left corner
+
         pygame.display.flip()
 
         # Limit frames per second
