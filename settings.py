@@ -15,7 +15,7 @@ BACKGROUND = (170, 192, 255)
 YELLOW = (255, 196, 0)
 
 # Player settings
-PLAYER_SPEED = 10
+PLAYER_SPEED = 5
 PLAYER_JUMP_POWER = 15
 PLAYER_JUMP_FORWARD_SPEED = 20
 PLAYER_CLIMB_SPEED = 5
@@ -23,6 +23,7 @@ GRAVITY = 1
 
 # Level settings
 level_width = 10000
+GAME_TIME = 30000 # 30 seconds = 30000 ms
 
 # Assets path
 ASSETS_PATH = os.path.join(os.path.dirname(__file__), 'assets')
