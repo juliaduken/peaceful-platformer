@@ -12,11 +12,15 @@ class PlatformManager:
     """
     def __init__(self):
         """
-        Initializes the PlatformManager to handle multiple platforms.
+        Initializes the PlatformManager to handle multiple platforms and determine level width.
         """
         self.platforms = []
+        self.level_width = 0 
     
-    def generate_platforms(self, num_platforms, level_width, screen_height):
+    def generate_platforms(self, num_platforms, screen_height):
+        """
+        Generates platforms and calculates the level width based on the rightmost platform.
+        """
         # Define ground level
         ground_level = screen_height - 50
 
@@ -47,6 +51,10 @@ class PlatformManager:
             width = random.randint(100, 200)
             platform = Platform(x, y, width, height)
             self.platforms.append(platform)
+        
+        # Update level width based on the rightmost platform
+        self.level_width = self.platforms[-1].rect.right
+        print(f"Level width: {self.level_width}")
     
     def update(self, scroll_x):
         """
@@ -103,7 +111,6 @@ class ChestManager:
 
     def place_chests(self, platforms):
         eligible_platforms = [p for p in platforms if p.rect.bottom > 160] 
-        print(eligible_platforms)
         chest_platforms = random.sample(eligible_platforms, min(7, len(eligible_platforms)))
         
         for platform in chest_platforms:

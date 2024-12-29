@@ -18,6 +18,7 @@ class Player:
         self.jump_animation_timer = 0
         self.scroll_x = 0 # Track horizontal scrolling
         self.scroll_speed = 3 # Speed of scrolling
+        self.scroll_offset = 0
 
         # Load images of player
         self.image_idle = pygame.image.load("assets/images/fairy.png")
