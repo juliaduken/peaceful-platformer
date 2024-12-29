@@ -24,8 +24,8 @@ cd peaceful-platformer
 1. Open the project in Visual Studio Code.
 2. Create a virtual environment by running the following in the terminal: ```python -m venv .venv```
 3. Activate the virtual environment:
-- *On Windows:* ```.venv\Scripts\activate```
-- *On macOS/Linux:* ```source .venv/bin/activate```
+    - *On Windows:* ```.venv\Scripts\activate```
+    - *On macOS/Linux:* ```source .venv/bin/activate```
 4. Install the required dependencies by running the following in the terminal: 
 ```pip install -r requirements.txt```
 
@@ -33,17 +33,17 @@ cd peaceful-platformer
 To run the game, run ```python game.py``` in your terminal. Press the start button, and enjoy!
 
 ## How to Play
-In *Peaceful Platformer*, your goal is to explore the game world, collect treasures, and score as many points as possible while navigating platforms and climbing ladders. Here’s everything you need to know to play:
+In *Peaceful Platformer*, your goal is to explore the game world, collect treasures, and score as many points as possible while navigating platforms and climbing ladders. 
 ### Controls
-*Movement*
-Left Arrow (←): Move left.
-Right Arrow (→): Move right.
-*Jumping*
-Spacebar: Jump. You can also combine this with the arrow keys for directional jumps.
-*Climbing Ladders*
-Up Arrow (↑): Climb up a ladder.
-Down Arrow (↓): Climb down or drop through a platform.
-*Interacting with Chests*
+*Movement*<br>
+Left Arrow (←): Move left.<br>
+Right Arrow (→): Move right.<br><br>
+*Jumping*<br>
+Spacebar: Jump. You can also combine this with the arrow keys for directional jumps.<br><br>
+*Climbing Ladders*<br>
+Up Arrow (↑): Climb up a ladder.<br>
+Down Arrow (↓): Climb down or drop through a platform.<br><br>
+*Interacting with Chests*<br>
 E Key: Open a nearby chest to collect treasure and score points.
 
 ### Scoring System
