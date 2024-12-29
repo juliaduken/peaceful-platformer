@@ -36,33 +36,33 @@ To run the game, run ```python game.py``` in your terminal. Press the start butt
 In *Peaceful Platformer*, your goal is to explore the game world, collect treasures, and score as many points as possible while navigating platforms and climbing ladders. 
 ### Controls
 *Movement*<br>
-Left Arrow (←): Move left.<br>
-Right Arrow (→): Move right.<br><br>
+    - Left Arrow (←): Move left.<br>
+    - Right Arrow (→): Move right.<br><br>
 *Jumping*<br>
-Spacebar: Jump. You can also combine this with the arrow keys for directional jumps.<br><br>
+    - Spacebar: Jump. You can also combine this with the arrow keys for directional jumps.<br><br>
 *Climbing Ladders*<br>
-Up Arrow (↑): Climb up a ladder.<br>
-Down Arrow (↓): Climb down or drop through a platform.<br><br>
+    - Up Arrow (↑): Climb up a ladder.<br>
+    - Down Arrow (↓): Climb down or drop through a platform.<br><br>
 *Interacting with Chests*<br>
-E Key: Open a nearby chest to collect treasure and score points.
+    - E Key: Open a nearby chest to collect treasure and score points.
 
 ### Scoring System
-*Opening Chests:* Each chest you open awards 10 points.
+Each chest you open awards 10 points.
 
 ## File Descriptions
 ### Core Game Files
-*game.py:* Contains the main game loop, initializes the game window, and manages updates and rendering for all components​
-*settings.py:* Defines global constants such as screen dimensions, colors, player settings, and asset paths​
+- *game.py:* Contains the main game loop, initializes the game window, and manages updates and rendering for all components​<br>
+- *settings.py:* Defines global constants such as screen dimensions, colors, player settings, and asset paths​
 
 ### Gameplay Components
-*player.py:* Handles the player's behavior, including movement, jumping, climbing ladders, and interacting with chests​
-*platform.py:* Represents platforms in the game, including their position and collision detection​
-*ladder.py:* Represents ladders, allowing the player to climb between platforms​
-*chest.py:* Represents treasure chests that the player can open to gain points​
+- *player.py:* Handles the player's behavior, including movement, jumping, climbing ladders, and interacting with chests​<br>
+- *platform.py:* Represents platforms in the game, including their position and collision detection​​<br>
+- *ladder.py:* Represents ladders, allowing the player to climb between platforms​​<br>
+- *chest.py:* Represents treasure chests that the player can open to gain points​​<br>
 
 ### Game Managers
-managers.py: Contains managers for platforms, ladders, and chests to handle their creation, updates, and rendering​
+- *managers.py:* Contains managers for platforms, ladders, and chests to handle their creation, updates, and rendering​
 
 ### Visuals and Screens
-*background.py:* Manages background elements such as dirt and moving clouds​
-*screens.py:* Handles different game screens, such as the start and game over screens​
+- *background.py:* Manages background elements such as dirt and moving clouds​ <br>
+- *screens.py:* Handles different game screens, such as the start and game over screens​
