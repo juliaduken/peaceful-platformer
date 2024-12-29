@@ -2,11 +2,10 @@
 
 import pygame
 import sys
-from settings import *
+from settings import GROUND_LEVEL, SCREEN_WIDTH, SCREEN_HEIGHT, BACKGROUND, FPS, level_width    
 from player import Player
 import random
-from game_obj import Platform, PlatformManager
-
+from objects.managers import PlatformManager, LadderManager, ChestManager
 
 # Initialize Pygame
 pygame.init()
@@ -81,6 +80,12 @@ def main():
     platform_manager = PlatformManager()
     platform_manager.generate_platforms(20, level_width, SCREEN_HEIGHT)
 
+    ladder_manager = LadderManager()
+    ladder_manager.place_ladders(platform_manager.platforms, GROUND_LEVEL)
+    
+    chest_manager = ChestManager()
+    chest_manager.place_chests(platform_manager.platforms)
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -88,13 +93,14 @@ def main():
                 running = False
 
         # Update player
-        player.update(platform_manager.platforms, platform_manager.ladders, platform_manager.chests, level_width)
+        player.update(platform_manager.platforms, ladder_manager.ladders, chest_manager.chests, level_width)
 
         # Move platforms only when the level scrolls
-        platform_manager.update_platforms(player.scroll_speed if player.rect.x >= 2 * SCREEN_WIDTH // 4 else 0)
-        
-        # Draw platforms
-        platform_manager.draw_platforms(screen)
+        platform_manager.update(player.scroll_speed if player.rect.x >= 2 * SCREEN_WIDTH // 4 else 0)
+        ladder_manager.update(player.scroll_speed if player.rect.x >= 2 * SCREEN_WIDTH // 4 else 0)
+        chest_manager.update(player.scroll_speed if player.rect.x >= 2 * SCREEN_WIDTH // 4 else 0)
+
+
 
         # Update cloud positions
         for cloud in clouds:
@@ -111,25 +117,17 @@ def main():
         for cloud in clouds:
             screen.blit(cloud_img, cloud)
 
-        # Draw platforms
-        for platform in platform_manager.platforms:
-            platform.draw(screen)
-        
-        # Draw ladders
-        for ladder in platform_manager.ladders:
-            ladder.draw(screen)
-
         # Draw player
         player.draw(screen)
 
-        # Draw treasure chests
-        for chest in platform_manager.chests:
-            chest.draw(screen)
-
         # Draw Dirt
-        GROUND_LEVEL = SCREEN_HEIGHT - DIRT_HEIGHT
         screen.blit(dirt_img, (0, GROUND_LEVEL))  # Draw the dirt
         draw_dirt(screen)
+
+        # Draw platforms, ladders, and chests
+        platform_manager.draw(screen)
+        ladder_manager.draw(screen)
+        chest_manager.draw(screen)
 
         # Render the score
         font = pygame.font.Font(None, 36)  # Use a Pygame font

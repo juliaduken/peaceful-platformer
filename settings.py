@@ -1,5 +1,6 @@
-## Constants and Configurations ##
+import os 
 
+## Constants and Configurations ##
 # Screen settings
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -22,3 +23,6 @@ GRAVITY = 1
 
 # Level settings
 level_width = 10000
+
+# Assets path
+ASSETS_PATH = os.path.join(os.path.dirname(__file__), 'assets')
