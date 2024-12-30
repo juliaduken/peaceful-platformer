@@ -1,7 +1,9 @@
 import random
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT, GROUND_LEVEL
 from objects.platform import Platform
 from objects.ladder import Ladder
 from objects.chest import Chest
+from objects.enemy import Enemy
 
 class PlatformManager:
     """
@@ -123,3 +125,54 @@ class ChestManager:
     def draw(self, screen):
         for chest in self.chests:
             chest.draw(screen)
+
+class EnemyManager:
+    """
+    Handles the generation, updating, and rendering of enemies in the game.
+    """
+    def __init__(self):
+        """
+        Initializes the EnemyManager to manage a list of enemies and control spawn timing.
+        """
+        self.enemies = []
+        self.last_spawn_time = 0  # Time when the last enemy was spawned
+
+    def generate_enemies(self, screen_width, ground_level):
+        """
+        Generates a single enemy at a random position on the screen.
+        :param screen_width: Width of the game screen.
+        :param ground_level: Y-coordinate of the ground.
+        """
+        x = screen_width + 50  # Spawn just off the right edge of the screen
+        y = ground_level - 50  # Ground level
+        self.enemies.append(Enemy(x, y))
+        print(f"Generated Enemy at ({x}, {y})")  # Debug
+
+    def update(self, current_time, screen_width, scroll_x, ground_level):
+        """
+        Updates the positions and behavior of all enemies and spawns new ones every 10 seconds.
+        :param current_time: Current game time in milliseconds.
+        :param screen_width: Width of the screen (used for spawning).
+        :param scroll_x: Horizontal scrolling value to move enemies.
+        :param ground_level: Y-coordinate of the ground.
+        """
+        # Spawn a new enemy every 10 seconds
+        if current_time - self.last_spawn_time > 10000:  # 10 seconds = 10000 ms
+            self.generate_enemies(screen_width, ground_level)
+            self.last_spawn_time = current_time  # Reset spawn time
+
+        # Update all enemies
+        for enemy in self.enemies[:]:
+            enemy.update(scroll_x, ground_level)
+
+            # Remove enemies that move off-screen
+            if enemy.rect.right < 0:
+                self.enemies.remove(enemy)
+
+    def draw(self, screen):
+        """
+        Draws all enemies on the screen.
+        :param screen: Pygame screen surface.
+        """
+        for enemy in self.enemies:
+            enemy.draw(screen)
