@@ -70,7 +70,7 @@ class Player:
         return False
 
     
-    def update(self, platforms, ladders, chests, level_width):
+    def update(self, platforms, ladders, chests, enemies, level_width):
         """
         Updates the player's position and handles collisions with platforms.
         :param platforms: List of Platform objects.
@@ -131,6 +131,9 @@ class Player:
                     self.score += 10  # Increase the player's score
                     print(f"Chest opened! Score: {self.score}")
 
+        for enemy in enemies:
+            if self.rect.colliderect(enemy.rect):
+                print("Player hit by enemy!")  # Replace with damage logic or game over logic
         # Apply gravity only if not climbing
         if not self.on_ladder:
             self.vel_y += GRAVITY
