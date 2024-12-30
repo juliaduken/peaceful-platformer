@@ -78,10 +78,10 @@ def main():
             background_manager.draw(screen)
 
             # Draw player
-            player.draw(screen)
-
+            
             # Draw platforms, ladders, and chests
             platform_manager.draw(screen)
+            player.draw(screen)
             ladder_manager.draw(screen)
             chest_manager.draw(screen)
 

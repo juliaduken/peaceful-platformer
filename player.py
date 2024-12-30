@@ -47,7 +47,7 @@ class Player:
             
             # Horizontal midpoint of the player
             player_mid_x = self.rect.centerx
-
+            
             # Horizontal condition: Player's midpoint must be over the platform
             is_midpoint_on_platform = platform.rect.left <= player_mid_x <= platform.rect.right
 
