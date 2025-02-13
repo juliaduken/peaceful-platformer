@@ -1,8 +1,10 @@
 # Peaceful Platformer
 
 Welcome to the *Peaceful Platformer* game! This README will guide you through setting up and running the game locally, as well as explain the functionality of the different files.
+## 🕹️ Gameplay
+[image.png](https://postimg.cc/crb66LfJ)
 
-## Getting Started
+## 🛠️ Getting Started
 
 ### Prerequisites
 Make sure you have the following installed:
@@ -32,7 +34,7 @@ cd peaceful-platformer
 ### Running the Game
 To run the game, run ```python game.py``` in your terminal. Press the start button, and enjoy!
 
-## How to Play
+## 🎮 How to Play
 In *Peaceful Platformer*, your goal is to explore the game world, collect treasures, and score as many points as possible while navigating platforms and climbing ladders. 
 ### Controls
 *Movement*<br>
@@ -49,7 +51,7 @@ In *Peaceful Platformer*, your goal is to explore the game world, collect treasu
 ### Scoring System
 Each chest you open awards 10 points.
 
-## File Descriptions
+## 📂 File Descriptions
 ### Core Game Files
 - *game.py:* Contains the main game loop, initializes the game window, and manages updates and rendering for all components​<br>
 - *settings.py:* Defines global constants such as screen dimensions, colors, player settings, and asset paths​
