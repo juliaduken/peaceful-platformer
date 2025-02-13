@@ -188,8 +188,3 @@ class Player:
     def draw(self, screen):
         # Draw the player sprite
         screen.blit(self.image, self.rect)
-        
-        # Debug: Draw the player's midpoint
-        pygame.draw.circle(screen, (255, 0, 0), self.rect.center, 3)  # Red dot for midpoint
-        pygame.draw.rect(screen, (0, 0, 255), self.rect, 2)  # Blue outline
-
