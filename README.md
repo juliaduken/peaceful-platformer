@@ -1,10 +1,10 @@
-# 🧚🏻‍♀️ Peaceful Platformer
+# 🧚🏻‍♀️✨ Peaceful Platformer ✨🧚🏻‍♀️
 
 Welcome to the *Peaceful Platformer* game! This README will guide you through setting up and running the game locally, as well as explain the functionality of the different files.
 
-This is not a fully functioning game. It was meant as a project to help me learn Pygame through creating movement and collision detection. 
+**Please note:** This is not a fully functioning game. Additionally, the terminal still contanis some debugging outputs. It was meant as a project to help me learn Pygame through creating movement and collision detection with images. I drew the art for the game and used ChatGPT & Stack Overflow to help me learn about Pygame! 🎨💭
 
-Some notes about its functionality: The game includes a score keeping mechanism, detects collisions with moving enemies, and allows for opening chests and climbing ladders. The platforms generate randomly for a set distance, ensuring that they are close enough together. Ladders generate randomly on platforms greater than a certain height. The game camera is based on player location throughout the game. I created a new branch called camera that changed this mechanism as it was causing challenges to implement a final boss at the end. Consequently, I stopped development and moved on to another project. 
+**Functionality:** The game includes a score keeping mechanism, detects collisions with moving enemies, and allows for opening chests and climbing ladders. The platforms generate randomly for a set distance, ensuring that they are close enough together. Ladders generate randomly on platforms greater than a certain height. The game camera is based on player location throughout the game. I created a new branch called camera that changed this mechanism as it was causing challenges to implement a final boss at the end. Consequently, I stopped development and moved on to another project. I learned a lot while coding this and really enjoyed it. 
 
 ## 🕹️ Gameplay
 
