@@ -1,8 +1,11 @@
-# Peaceful Platformer
+# 🧚🏻‍♀️ Peaceful Platformer
 
 Welcome to the *Peaceful Platformer* game! This README will guide you through setting up and running the game locally, as well as explain the functionality of the different files.
 ## 🕹️ Gameplay
-[image.png](https://postimg.cc/crb66LfJ)
+
+<div align="center">
+    <img src="https://i.postimg.cc/fRwd23LY/image.png" width="500" height="300">
+</div>
 
 ## 🛠️ Getting Started
 
