@@ -26,7 +26,7 @@ Make sure you have the following installed:
 2. Run the following command to clone the repository:
 
 ```
-git clone https://github.com/yourusername/peaceful-platformer.git
+git clone https://github.com/juliaduken/peaceful-platformer.git
 cd peaceful-platformer
 ```
 
